@@ -1,0 +1,72 @@
+
+.Section{
+	height: 800px;
+}
+
+
+.ProgressBar  {
+	align-items: center;
+	
+ }
+
+ .Para,
+ .Para1,
+ .Para2,
+ .Para3
+ {
+	 color: black;
+	 font-weight: bolder;
+ }
+
+
+
+.Progress{
+	
+    border-radius: 20px;
+    border: 2px solid lightslategray;
+	margin-bottom:20px; 
+	justify-content: flex-start;
+
+}
+input[type=button]
+{
+	background: #fff;
+	padding: 10px 20px;
+	color:#34495e;
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-size: 15px;
+	border-radius: 5px;
+	margin: 15px 15px;
+	text-decoration: none;
+	box-shadow: 6px 6px 20px -4px rgba(0,0,0,0.75);
+	transition: 0.4s;
+}
+
+.AboutUsContent{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color: black ;
+	align-content: center;
+	font-weight: bold;
+    
+    
+}
+
+.Header{
+    color:black;
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+input[type=button]:hover
+{
+	background: #D3D3D3;
+	color: #fff;
+}
+
+.ReadMoreBtn{
+	flex-direction: row;
+	align-items: center;
+	
+}

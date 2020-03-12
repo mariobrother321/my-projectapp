@@ -1,0 +1,132 @@
+.Price
+{
+	padding: 40px 0;
+	
+}
+
+.SinglePrice
+{
+	margin: 10px auto;
+
+	float: left;
+	width: 100%;
+	transition: 0.5s;
+	border: solid;
+	border-radius: 10px;
+}
+
+.SinglePrice:hover
+{
+box-shadow: 0 2px 20px;
+}
+
+.PriceHead
+{
+	background-color: #2196f3;
+	float: left;
+	border: 2px solid #2196f3;
+	border-radius: 2px;
+	margin-top: 1px;
+	padding: 15px 5px;
+	width: 100%;
+}
+
+.PriceHead h2
+{
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	padding: 5px;
+	text-transform: uppercase;
+}
+
+.PriceHead p
+{
+	font-size: 25px;
+	color: #ccc;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+#price span
+{
+    font-size: 15px;
+
+}
+
+.PriceContent
+{
+	
+	float: left;
+	width: 100%;
+	padding:  0 15px;
+}
+
+.PriceContent ul li
+{
+	border-bottom: 2px solid #efefef;
+	padding: 15px  10px;
+	list-style:none;
+}
+
+ul li:last-child
+{
+	border:none;
+}
+
+.PriceButton
+{
+ 
+    float: left;
+    padding: 15px 15px 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.BuyNow
+{
+	background-color:green;
+	border-radius: 20px;
+	display:inline-block;
+	font-size: 20px;
+	padding: 10px 30px;
+	transition: 0.10s;
+
+}
+
+.BuyNow:hover
+{
+    border-color: 100px solid #fff;
+    background-color: lightgreen;
+}
+
+a
+{
+	text-decoration: none;
+	color:#fff;
+}
+
+.More
+input[type=button]
+{
+	background: #fff;
+	padding: 10px 20px;
+	color:#34495e;
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-size: 15px;
+	border-radius: 5px;
+	margin-top: 15px;
+	text-decoration: none;
+	box-shadow: 6px 6px 20px -4px rgba(0,0,0,0.75);
+	transition: 0.4s;
+}
+
+.More
+input[type=button]:hover
+{
+	background: #D3D3D3;
+	color: #fff;
+}
+

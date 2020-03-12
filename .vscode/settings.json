@@ -1,0 +1,6 @@
+{
+    "prettier.arrowParens": "always",
+    "prettier.proseWrap": "always",
+    "prettier.requireConfig": true,
+    "prettier.vueIndentScriptAndStyle": true
+}

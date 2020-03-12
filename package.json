@@ -1,0 +1,38 @@
+{
+  "name": "myserverapp",
+  "version": "1.0.0",
+  "description": "personal website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "mario": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Marian Dinca",
+  "license": "MIT",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/config": "0.0.36",
+    "@types/express": "^4.17.3",
+    "@types/gravatar": "^1.8.1",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/mongoose": "^5.7.5",
+    "@types/react-redux": "^7.1.7",
+    "@types/request": "^2.48.4",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "gravatar": "^1.8.0",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.4",
+    "request": "^2.88.2",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}

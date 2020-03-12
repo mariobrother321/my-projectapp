@@ -1,0 +1,15 @@
+.LoginBtn{
+	background-color:transparent;
+    border: none;
+    color:rgb(75, 58, 58);
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+
+
+

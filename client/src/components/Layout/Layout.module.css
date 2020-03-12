@@ -1,0 +1,10 @@
+.Content{
+    margin-top: 0px;
+    background-image: url(../../assets/images/back.jpeg);
+    color: #fff;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+

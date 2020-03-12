@@ -1,0 +1,31 @@
+@import 'bootstrap/scss/bootstrap';
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    
+        @media screen and (max-width: 400px) {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 200px;
+        }
+          
+        @media screen and (min-width: 401px ) {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 230px;
+        }
+
+            @media screen and (min-width: 700px) {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                height: 400px;
+            }
+        
+}
+
