@@ -1,70 +1,3 @@
-.Services
-{
-    background-image: url(../../../assets/images/back.jpeg);
-	background-repeat:no-repeat;
-	background-size: cover;
-	background-position: center;
-	color: #efefef;
-	background-attachment: fixed;
-	padding-top: 50px;
-	height:850px;
-}
-
-@media screen and (max-width: 400px){
-	.Services{
-		height: auto;
-	}
-}
-@media screen and (max-width: 800px){
-	.Services{
-		height: auto;
-	}
-}
-
-@media screen and (max-width: 1200px){
-	.Services{
-		height: 1200px;
-	}
-	
-}
-
-
-
-.ContainerServices{
-	height:70%;
-	width: 100%;
-	background-color:rgba(37, 41, 37, 0.5);
-	
-	
-}
-@media screen and (max-width: 800px){
-    .ContainerServices{
-		height:auto;
-	}
-}
-@media screen and (max-width: 400px){
-	.ContainerServices{
-		height: auto;
-	}
-}
-
-.Services h1
-{
-	text-align: center;
-	color: #efefef;
-	padding-bottom: 10px;
-}
-.Services h1::after
-{
-	content: '';
-	background: #f0e6e6;
-	display: block;
-	height: 3px;
-	width: 280px;
-	margin:20px auto 5px;
-
-}
-
 .Icon
 {
 	font-size: 40px;
@@ -75,10 +8,5 @@
 	border:2px solid rgb(243, 224, 224);
 	border-radius: 50%;
 }
-.Services p
-{
-	font-size: 16px;
-	margin-top: 10px;
-	color:rgb(240, 229, 240);
-}
+
 

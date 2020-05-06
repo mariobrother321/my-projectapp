@@ -1,0 +1,31 @@
+.P1{
+ padding: 1rem;
+}
+
+.ProfileAbout{
+    
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+	
+}
+
+.Bio{
+    margin-top: 30px;
+   
+}
+
+.Line{
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
+}
+
+.Skills{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

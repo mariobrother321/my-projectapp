@@ -1,0 +1,85 @@
+
+
+h1
+{
+   text-orientation: left;
+   text-align: center;
+   color:white;
+   padding-bottom: 15px;
+}
+
+.ProfilPic
+{
+    margin-top: 25px;
+    
+   
+
+}
+.ProfilPic 
+{
+	opacity: 1;
+	display: block;
+	position: relative;
+}
+
+
+.ImageResponsive
+{
+border: 1px solid black;
+box-sizing: border-box;
+border-radius: 80px;
+
+}
+
+
+
+.ImageResponsive :hover
+{
+   cursor: pointer;
+}
+
+.ProfilPic h2
+{
+	font-size: 22px;
+	font-weight:bold;
+    margin-top: 15px;
+    color: #007bff;
+}
+
+.ProfilPic h3
+{
+	font-size: 15px;
+	font-weight:bold;
+    margin-top: 15px;
+    
+}
+
+
+.ImageBox ul
+{
+	padding: 15px 0;
+	position: absolute;
+	z-index: 2;
+	bottom: 26%;
+	left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+}
+
+.ImageBox ul li
+{
+	padding: 5px;
+	display: inline-block;
+}
+
+.ImageBox :hover ul li
+{
+    opacity: 100;
+    background-color: hotpink;
+}
+    
+.ImageBox ul
+.ImageBox ul li
+{
+	transition: 0.10s;
+}

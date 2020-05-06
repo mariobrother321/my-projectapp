@@ -3,6 +3,8 @@ import { Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {logout} from '../../../action/auth';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+//import Icon from '@material-ui/core/Icon';
 
 
 class NavBarItems extends Component {
@@ -16,9 +18,7 @@ class NavBarItems extends Component {
     
   }
 
-  componentDidMount() {
-    console.log(this.props)
-  }
+  
 
   toggleNavbar() {
     console.log("asta vine din navbaritems")
@@ -31,6 +31,10 @@ class NavBarItems extends Component {
 
   }
   render() {
+    this.props.cartUpdated();
+        let total = 0; 
+    this.props.cart.map(item => total += item.product.price * item.quantity);
+    
     const collapsed = this.state.collapsed;
     const classOne = collapsed ? 'collapse navbar-collapse ' : 'collapse navbar-collapse show';
     const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
@@ -43,7 +47,9 @@ class NavBarItems extends Component {
           <li className="nav-item active">
           <Link className="nav-link" to='/'>Home</Link>
           </li>
-         
+          <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">Profile</Link>
+          </li>
           <li className="nav-item">
           <Link className="nav-link" to={{pathname: '/services'}} >Services</Link>
           </li>
@@ -51,7 +57,7 @@ class NavBarItems extends Component {
           <Link className="nav-link" to="/team">Team</Link>
           </li>
           <li className="nav-item">
-          <Link className="nav-link" to="/priceplans">Price Plans</Link>
+          <Link className="nav-link" to="/priceplans">Products</Link>
           </li>
           <li className="nav-item">
           <Link className="nav-link" to="/support">24/7 Support</Link>
@@ -60,11 +66,20 @@ class NavBarItems extends Component {
           <Link className="nav-link" to="/testimonials">Testimonials</Link>
           </li>
           <li className="nav-item">
-          <Link className="nav-link" to="/contactus">Contact Us</Link>
+          <Link className="nav-link" to="/contact">Contact Us</Link>
           </li>
           <li className="nav-item">
          <Link className="nav-link" to="/"  onClick={this.props.logout}>Logout</Link>
-
+          </li>
+          
+          <li className="nav-item">
+            <Link className="nav-link" to="/cart">
+            {
+                this.props.cart.length > 0 ? (
+                    <span className="label label-info">{ this.props.cart.length } items: (£ {total.toFixed(2)})</span>
+                ) : null
+            }
+              My Cart <ShoppingCartOutlinedIcon/></Link>
           </li>
       </ul>
     
@@ -77,7 +92,7 @@ class NavBarItems extends Component {
       <li className="nav-item active">
       <Link className="nav-link" to='/'>Home</Link>
       </li>
-     
+      
       <li className="nav-item">
       <Link className="nav-link" to={{pathname: '/services'}} >Services</Link>
       </li>
@@ -85,7 +100,7 @@ class NavBarItems extends Component {
       <Link className="nav-link" to="/team">Team</Link>
       </li>
       <li className="nav-item">
-      <Link className="nav-link" to="/priceplans">Price Plans</Link>
+      <Link className="nav-link" to="/priceplans">Products</Link>
       </li>
       <li className="nav-item">
       <Link className="nav-link" to="/support">24/7 Support</Link>
@@ -94,12 +109,22 @@ class NavBarItems extends Component {
       <Link className="nav-link" to="/testimonials">Testimonials</Link>
       </li>
       <li className="nav-item">
-      <Link className="nav-link" to="/contactus">Contact Us</Link>
+      <Link className="nav-link" to="/contact">Contact Us</Link>
       </li>
       <li className="nav-item">
      <Link className="nav-link" to="/login">Login</Link>
+     </li>
+     <li className="nav-item">
+            <Link className="nav-link" to="/cart">
+            {
+                this.props.cart.length > 0 ? (
+                    <span className="label label-info">{ this.props.cart.length } items: (£ {total.toFixed(2)})</span>
+                ) : null
+            }
+              My Cart <ShoppingCartOutlinedIcon/> </Link>
+          </li>
 
-      </li>
+      
   </ul>
     );
 
@@ -126,9 +151,16 @@ NavBarItems.propTypes = {
   auth: PropTypes.object.isRequired,
 }
 
-const mapStateToProps = state => ({
-  auth: state.auth
-})
+const mapStateToProps = (state) => {
+ 
+  return {
+      auth: state.auth,
+      cart: state.cartReducer.cart,
+      cartUpdated: () => { return true },
+  }
+};
+
+
 
 
 export default connect(mapStateToProps, {logout})(NavBarItems);

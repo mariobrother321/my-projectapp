@@ -1,0 +1,17 @@
+.ImgSpinner{
+     width: auto;
+     height: 200px;
+     margin: auto ;
+     display: block 
+}
+
+.SpinnerDiv{
+    height: 800px;
+}
+
+
+@media screen and (max-width: 801px){
+    .SpinnerDiv{
+        height: 600px;
+    }
+}

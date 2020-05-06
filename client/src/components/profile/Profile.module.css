@@ -1,0 +1,41 @@
+.ProfileGrid{
+    display: grid;
+    grid-template-areas:
+      'top top'
+      'about about'
+      'exp edu'
+      'github github';
+    grid-gap: 1rem;
+}
+
+
+.ExpEdu{
+  background-color:rgba(37, 41, 37, 0.5);
+  align-items: center;
+  padding-top: 30px;
+}
+
+.ProfileExperience{
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: #ccc 1px dotted;
+}
+
+.Line{
+  height: 2px;
+  background: #ccc;
+  margin: 1.5rem 0;
+}
+
+@media screen and (max-width:768px){
+  .ProfileGrid{
+   display:contents !important;
+    grid-template-areas:
+      'top top'
+      'about about'
+      'exp edu'
+      'github github';
+    grid-gap: 1rem;
+   
+   }
+}

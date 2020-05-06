@@ -8,12 +8,16 @@ const config = require('config')
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
+
+
+
+
 // @route          GET api/profile/me
 //@description     get current user profile
 //@acces           Private
 app.get('/me', auth, async (req, res) => {
      try {
-        const profile = await Profile.findOne({ user: req.user.id}).populate('user',['name', 'avatar']);
+        const profile = await Profile.findOne({ user: req.user.id}).populate('user',['name', 'avatar','userImage' ]);
 
         if(!profile) {
             return res.status(400).json({ msg: 'There is no profile for this User'});
@@ -63,7 +67,6 @@ app.post('/', [auth,
        //Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
-    
     if (company) profileFields.company = company;
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
@@ -84,12 +87,12 @@ app.post('/', [auth,
     if (instagram) profileFields.social.instagram = instagram;
  
     try {
-        let profile = await Profile.findOne({ user: req.user._id});
+        let profile = await Profile.findOne({ user: req.user.id});
 
         if(profile) {
             //Update
             profile = await Profile
-            .findByIdAndUpdate(
+            .findOneAndUpdate(
                 { user: req.user.id},
                 { $set: profileFields},
                 { new: true }
@@ -116,13 +119,12 @@ app.post('/', [auth,
 //@acces           Public
 
 app.get('/', async (req, res) => {
+   
     try {
-        const profiles = await Profile
-        .find()
-        .populate(
-         'user',
-        [ 'name', 'avatar']);
+       
+        const profiles = await Profile.find().populate('user',[ 'name', 'avatar', 'userImage']);
         res.json(profiles);
+        
 
     } catch (err) {
         console.error(err.message);
@@ -140,7 +142,7 @@ app.get('/user/:user_id', async (req, res) => {
         .findOne({ user: req.params.user_id })
         .populate(
          'user',
-        [ 'name', 'avatar']);
+        [ 'name', 'avatar','userImage']);
 
       if(!profile) 
         return res.status(400)
@@ -201,6 +203,7 @@ app.put(
        return res.status(400).json({ errors: errors.array() });
    }
     const {
+       
         title,
         company,
         location,

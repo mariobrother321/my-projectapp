@@ -2,19 +2,21 @@ import React from 'react';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import classes from './PricePlansDatas.module.css';
 import {withRouter} from 'react-router-dom';
+import CompLocalSection from '../../CompSection/CompLocalSection/CompLocalSection';
+import CompDiv from '../../CompSection/CompDiv/CompDiv';
 
 const pricePlansDatas = (props) => {
     
 
     return(
 <Aux>
+  <CompLocalSection>
+    <CompDiv>
 
-<section className={classes.Price}>
-        <div className="container">
           <h1>Price Plans</h1>
           <div className="row">
-            <div className="col-md-3">
-              <div className={classes.SinglePrice}>
+            <div className="col-md-auto">
+              <div className={classes.SinglePrice1}>
                 <div className={classes.PriceHead}>
                   <h2>Free</h2>
                   <p>£0/<span>month</span></p>
@@ -40,11 +42,17 @@ const pricePlansDatas = (props) => {
                   </ul>
                 </div>
                 <div className={classes.PriceButton}>
-                 <button className={classes.BuyNow}> Buy now</button> 
+                <a href="/buymore"
+                style={{textDecoration: 'none', float: 'right'}}>
+                  <input 
+                  type="button" 
+                  name="more-btn" 
+                  defaultValue="Buy" /></a><br />
+               
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-auto">
               <div className={classes.SinglePrice}>
                 <div className={classes.PriceHead}>
                   <h2>Start Up</h2>
@@ -70,11 +78,16 @@ const pricePlansDatas = (props) => {
                   </ul>
                 </div>
                 <div className={classes.PriceButton}>
-                <button className={classes.BuyNow}> Buy now</button> 
+                <a href="/buymore"
+                style={{textDecoration: 'none', float: 'right'}}>
+                  <input 
+                  type="button" 
+                  name="more-btn" 
+                  defaultValue="Buy" /></a><br />
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-auto">
               <div className={classes.SinglePrice}>
                 <div className={classes.PriceHead}>
                   <h2>Business </h2>
@@ -100,12 +113,17 @@ const pricePlansDatas = (props) => {
                   </ul>
                 </div>
                 <div className={classes.PriceButton}>
-                <button className={classes.BuyNow}> Buy now</button> 
+                <a href="/buymore"
+                style={{textDecoration: 'none', float: 'right'}}>
+                  <input 
+                  type="button" 
+                  name="more-btn" 
+                  defaultValue="Buy" /></a><br /> 
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
-              <div className={classes.SinglePrice}>
+            <div className="col-md-auto">
+              <div className={classes.SinglePrice4}>
                 <div className={classes.PriceHead}>
                   <h2>Advanced</h2>
                   <p>£110/<span>month</span></p>
@@ -130,18 +148,22 @@ const pricePlansDatas = (props) => {
                   </ul>
                 </div>
                 <div className={classes.PriceButton}>
-                <button className={classes.BuyNow}> Buy now</button> 
+                <a href="/buymore"
+                style={{textDecoration: 'none', float: 'right'}}>
+                  <input 
+                  type="button" 
+                  name="more-btn" 
+                  defaultValue="Buy" /></a><br /> 
                 </div>
               </div>
             </div>
           </div>
           <div className={classes.More}>
-            <a href="morepgn.html" style={{textDecoration: 'none', float: 'right'}}><input type="button" name="more-btn" defaultValue="More" /></a><br /><br />
+            <a href="/morepage" style={{textDecoration: 'none', float: 'right'}}><input type="button" name="more-btn" defaultValue="More" /></a><br /><br />
           </div>
-        </div>
-      </section>
-
- </Aux>
+     </CompDiv>
+  </CompLocalSection>
+</Aux>
     );
 
     }

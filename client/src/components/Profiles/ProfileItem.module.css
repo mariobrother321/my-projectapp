@@ -1,0 +1,29 @@
+.RoundImg{
+    border-radius: 50%;
+    
+    
+}
+
+.Info{
+    padding-left: 20px;
+}
+
+.UList{
+
+  margin: 1rem ;
+
+  
+}
+
+.UList1{
+    list-style: none;
+}
+
+.Spacer{
+    display: grid;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    height:100%;
+    width: 100%;
+    background-color:rgba(37, 41, 37, 0.5);
+}

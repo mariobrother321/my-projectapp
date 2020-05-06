@@ -1,0 +1,59 @@
+
+
+
+.Title{
+    color: white;
+    
+}
+
+.FormGrup{
+    background-color:rgba(32, 32, 32, 0.5) ;
+    color: white;
+}
+
+.FormBasicInfo{
+    
+    width: auto;
+    height: auto;
+  
+
+}
+
+.Option{
+    color: white;
+}
+
+.inputForm::placeholder {
+    color: rgb(252, 246, 246);
+    opacity: 1;
+   
+}
+
+.inputForm{
+    border: 1px solid black;
+    width: 500px;
+    color: white;
+    font-weight: bolder;
+    
+}
+
+.inputForm1{
+    background-color: inherit;
+    border: 1px solid black;
+    width: 500px;
+    color: white;
+    font-weight: bolder;
+}
+
+.inputForm2{
+    background-color: inherit;
+    border: 1px solid black;
+    width: 500px;
+    color: white;
+    font-weight: bolder;
+}
+
+
+
+
+

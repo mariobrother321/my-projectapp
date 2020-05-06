@@ -1,0 +1,47 @@
+
+.Border{
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  background: rgb(76, 78, 78);
+  border-right: 1px solid white;
+}
+
+.hideSm{
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  background:  rgb(75, 78, 78);
+  border-right: 1px solid white;
+}
+
+.Table{
+  font-size: 20px;
+  color: white;
+}
+
+.My2{
+  color: white;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .Table{
+    font-size: 10px;
+    color:white;
+  }
+  .My2{
+    color: white;
+    font-size: 18px;
+  }
+  .Border{
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    
+ }
+ .hideSm{
+  display:none;
+ 
+ } 
+ 
+} 

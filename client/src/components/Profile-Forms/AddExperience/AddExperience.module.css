@@ -1,0 +1,37 @@
+.FormInput{
+    height: auto;
+    width: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.FormInput ::placeholder{
+    color: white;
+}
+ 
+.FormInput input {
+    color:white;
+}
+
+.FormInput ::-ms-backdrop{
+    background-color: inherit;
+}
+
+.FormBasicInfo{
+    width: auto;
+    height: auto;
+   
+    
+}
+.AddEducation{
+   align-items: center
+}
+
+.FormControl {
+    background-color: inherit;
+}
+
+.FormControl ::backdrop{
+    background-color: indigo;
+}

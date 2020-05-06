@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../../action/auth';
 import Alert from '../Layout/Alert';
+import CompSection from '../CompSection/CompSection';
+//import CompDiv from '../CompSection/CompDiv/CompDiv';
 
 const LoginPage =(props)=> {
 
@@ -28,7 +30,7 @@ const LoginPage =(props)=> {
   // redirect if logged in
 
   if (props.isAuthenticated ) { 
-     console.log("mergeeee")
+     
     return(
     <Redirect to="/dashboard" />)
   } 
@@ -39,6 +41,8 @@ const LoginPage =(props)=> {
 
    return(
 <Fragment> 
+  <CompSection>
+    
   <Alert />
 
   <div className={classes.SignIn} id="signin">
@@ -62,22 +66,22 @@ const LoginPage =(props)=> {
          minlenght='6'
          /> <br /><br />
          <input type="submit" 
-         className='btn btn-primary'
+         className='btn btn-dark'
          defaultValue="Login"
          
          /><br /><br />
         <Link to="/"> <input 
-         className='btn btn-primary' 
+         className='btn btn-light' 
          defaultValue="Cancel" 
          /></Link><br /><br />
          <div id="container">
-           <a href="reset.html" style={{marginRight: '0px', fontSize: '13px', fontFamily: 'Tahoma, Geneva, sans-serif'}}>Reset password</a>
-           <a href="forgetpg" style={{marginLeft: '30px', fontSize: '13px', fontFamily: 'Tahoma, Geneva, sans-serif'}}>Forgot password</a>
+           
          </div><br />
                 Don't have an account? <Link className={classes.Link} to="/register" onClick={props.signup}>&nbsp;Sign Up</Link>
        </form>
     </div>
-
+      
+    </CompSection>
 </Fragment> 
 
      );

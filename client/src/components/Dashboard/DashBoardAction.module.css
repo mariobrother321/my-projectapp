@@ -1,0 +1,32 @@
+
+
+ .ButtonLight {
+  display:inline-table;
+  background: var(--light-color);
+  color: rgb(245, 234, 234);   
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+  border: border-box;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+@media screen and (max-width: 700px){
+.ButtonLight{
+  display:table-row;
+  background: var(--light-color);
+  color: rgb(245, 234, 234);
+  padding-top: 1rem;
+  padding-bottom: 1 rem;
+  font-size: 0.8rem;
+  border: border-box;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+ }
+ 
+}
+

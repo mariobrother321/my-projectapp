@@ -1,0 +1,67 @@
+.My2{
+    margin: 2rem 0;
+}
+
+.LargePri{
+    font-size: 40px;
+    color: rgb(253, 251, 251);
+}
+
+.Lead {
+    font: 1.5em sans-serif;
+    color: white;
+}
+
+
+.ImageResponsive
+{
+width: 150px;
+
+border-radius: 50%;
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+  .Container {
+    height: auto;
+    width: auto;
+  }
+
+  .Container1{
+    height:100%;
+	  width: 100%;
+   	background-color:rgba(37, 41, 37, 0.5);
+  }
+
+  .Container h1::after{
+    content: '';
+	  background: #f0e6e6;
+	  display: block;
+	  height: 3px;
+	  width: 200px;
+	  margin:2px auto 5px;
+  }
+  .Lead {
+    font: 1em sans-serif;
+    color: white;
+   }
+   .LargePri{
+    font-size: 20px;
+    color: rgb(253, 251, 251);
+    }
+    .My2{
+      margin: 0.1rem 0;
+    }
+    .My2.p{
+      font-size: 10px;
+  }
+   
+}
+  
+
+    
+
+
+

@@ -2,22 +2,30 @@
 
 .SignIn
 {
-	background: rgba(44,62,80,0.7);
-	margin:auto;
-	margin-top: 0px;
-	padding: 70px;
-	width: 50%;
-    height: 100%;	
-    font-family: Tahoma, Geneva, sans-serif;
-    color: #fff;
-    align-content: center;
-	
+    
+    background-color:rgba(37, 41, 37, 0.5);
+	width: 300px;
+	margin-top: 40px;
+	height:400px;
+	margin-left: 100px;
+    margin: 0 auto;
+	padding-top: 30px;
 }								
 
+@media screen and (max-width: 400px) {
+	.SignIn{
+		width: auto;
+		height: fit-content;
+	}
+	.InputForm{
+		height: 400px;
+	}
+}
 
 .InputForm
 {
 	width: 100%;
+	height: auto;
     text-align: center;
     justify-items: center;
 }
@@ -75,12 +83,7 @@ a:hover
 	color: skyblue;
 }
 
-.container
-{
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-}
+
 
 ::placeholder
 {

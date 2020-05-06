@@ -1,0 +1,15 @@
+.PostForm{
+    padding: 0.5rem;
+    display:table-caption;
+    width: auto;
+    align-items: center;
+    text-align: center
+    
+}
+
+.Textarea{
+    min-width: 300px;
+    width: auto;
+    background: inherit;
+    color:white;
+}

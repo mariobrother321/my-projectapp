@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar';
 //import LoginPage from '../LoginPage/LoginPage';
 import classes from './Layout.module.css';
 import { withRouter } from 'react-router';
+//import Footer from '../Footer/Footer';
 //import {Redirect} from 'react-router-dom';
 //import Registerform from '../RegisterForm/RegisterForm';
 //import RegisterCont from '../../containers/Register/Register';
@@ -18,9 +19,11 @@ class Layout extends Component {
     <Aux>
       <div className={classes.Content}>
       <NavBar/>
-           
+      
          <main>
+         
            {this.props.children}
+          
          </main>
         
       </div>

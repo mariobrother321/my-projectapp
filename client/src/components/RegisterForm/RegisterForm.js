@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import Alert from '../Layout/Alert';
 import {Redirect} from 'react-router-dom'
 import { Link} from 'react-router-dom';
+import CompSection from '../CompSection/CompSection';
+
+//import CompDiv from '../CompSection/CompDiv/CompDiv';
 
 //import axios from 'axios';
 //import Aux from '../../hoc/Auxiliary/Auxiliary';
@@ -14,6 +17,7 @@ import { Link} from 'react-router-dom';
 const RegisterForm = ({setAlert, register, isAuthenticated, history})=> {
 
   const [formData, setFormData] = useState({
+    
     name: '', 
     email: '',
     password: '',
@@ -35,41 +39,26 @@ const onSubmit = async e =>{
     console.log('merge')
       register({ name, email, password });
 
-    {/*const newUser = {
-      name,
-      email,
-      password
-    }
-
-    try{
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-
-      const body = JSON.stringify(newUser);
-      const res = await axios.post('/api/users',body, config);
-      console.log(res.data);
-
-    } catch(err) {
-      console.error(err.response.data);
-    }*/}
+    
   }
 }
 
 if (isAuthenticated) {
-   return <Redirect to="/dashboard" />;
+   return <Redirect to="/" />;
 }
 
 
 
 return(
     <Fragment>
+      <CompSection>
+        
        <Alert/>
+
       <div className={classes.SignUp}>
         <form className='form' onSubmit={e => onSubmit(e)}>
           <h2 style={{color: '#fff'}}>Sign Up</h2>
+         
           <input 
           type="text"
            placeholder="Name" 
@@ -77,19 +66,14 @@ return(
            value={name} 
            onChange={e => onChange(e)} 
            required/><br /><br />
-          {/*<input type="text" 
-           name="namex" 
-           placeholder="Last name" 
-           value={namex}
-           onChange={e => onChange(e)}
-           required/><br /><br />*/}
-          <input type="new-password" 
+          <input 
+           type="password" 
            name="password"
            placeholder="Password" 
            value={password}
            onChange={e => onChange(e)}
            required/><br /><br />
-          <input type="new-password" 
+          <input type="password" 
            name="password2" 
            placeholder="Confirm Password" 
            value={password2}
@@ -102,11 +86,13 @@ return(
            value={email}
            onChange={e => onChange(e)}
            required/><br /><br />
-          <input type="submit" className='btn btn-primary' defaultValue="Sign up" /><br /><br />
-        <Link to="/"> <input type="cancel" className='btn btn-primary' defaultValue="Cancel"  /></Link> <br /><br />
+          <input type="submit" className='btn btn-dark' defaultValue="Sign up" /><br /><br />
+        <Link to="/"> <input type="cancel" className='btn btn-light' defaultValue="Cancel"  /></Link> <br /><br />
         </form>
        
       </div>
+       
+      </CompSection>
     </Fragment>
       );
 
@@ -127,3 +113,29 @@ const mapStateToProps = state => ({
 });
 
 export default connect( mapStateToProps , { setAlert, register })(RegisterForm);
+
+
+
+
+
+
+/*const newUser = {
+      name,
+      email,
+      password
+    }
+
+    try{
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+
+      const body = JSON.stringify(newUser);
+      const res = await axios.post('/api/users',body, config);
+      console.log(res.data);
+
+    } catch(err) {
+      console.error(err.response.data);
+    }*/

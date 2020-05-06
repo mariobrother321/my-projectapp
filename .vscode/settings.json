@@ -1,6 +1,10 @@
 {
+    
     "prettier.arrowParens": "always",
     "prettier.proseWrap": "always",
+    "prettier.vueIndentScriptAndStyle": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": false,
     "prettier.requireConfig": true,
-    "prettier.vueIndentScriptAndStyle": true
+    "prettier.configPath": "G:\\my-projectapp\\prettier-config\\prettierrc.json"
 }

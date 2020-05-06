@@ -1,0 +1,110 @@
+.CompLocalSection
+{
+background-image: url(../../../assets/images/back.jpeg);
+background-repeat:no-repeat;
+background-size: cover;
+background-position: center;
+color: #efefef;
+background-attachment: fixed;
+padding-top: 0px;
+min-height:1470px;
+height: auto;
+display: grid;
+grid-template-rows: auto 1fr auto;
+grid-template-columns: 100%;
+padding: 0%;
+margin: 0%;
+justify-content: center;
+}
+
+.CompLocalSection1{
+    
+    padding-top: 60px;
+    padding-bottom: 180px;
+}
+
+@media screen and (max-width: 400px) {
+    .CompLocalSection{
+        height: fit-content;
+        width: fit-content;
+    }
+    .CompLocalSection{
+       padding-top: 50px;
+       height: auto;
+       width: auto;
+    }
+}
+
+@media screen and (max-width: 801px) {
+ 
+    .CompLocalSection{
+        height: auto;
+        width: auto;
+    }
+    .CompLocalSection1{
+       padding-top: 50px;
+       height: auto;
+       width: auto;
+    }
+}
+
+@media screen and (min-height: 1030px){
+    .CompLocalSection{
+        min-height:1740px;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+ 
+    .CompLocalSection{
+        height: auto;
+        width: auto;
+    }
+    
+}
+
+@media screen and (max-height: 400px) {
+ 
+    .CompLocalSection{
+        height: auto;
+        width: auto;
+    }
+    
+}
+
+/*@media screen and (max-width: 2000px) {
+    .CompLocalSection{
+        height:880px;
+    
+    }
+}
+
+/*@media screen and (min-height:1200px){/
+    .CompLocalSection{
+        height: 1310px;
+    }/
+
+}/
+
+
+
+
+@media screen and (min-height:768px) and (max-height:1199px){/
+    .CompLocalSection{/
+        height:1200px;
+    }/
+}/
+
+@media screen and (min-height:401px) and (max-height:767px){/
+    .CompLocalSection{/
+        height:1260px;
+    }/
+}/
+@media screen and (max-height:400px){
+    .CompLocalSection{/
+        height:auto;
+    }
+
+}*/
