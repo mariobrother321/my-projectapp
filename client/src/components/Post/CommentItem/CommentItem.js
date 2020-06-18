@@ -13,7 +13,8 @@ import Avatar from 'react-avatar';
 
 const CommentItem = ({
   postId,
-  comment: { _id, text, name, avatar, user, date },
+  post,
+  comment: { _id, text, name, avatar,userImage, user, date },
   auth,
   deleteComment
 }) => (
@@ -24,8 +25,12 @@ const CommentItem = ({
      
   <div className={classes.Post}>
     <div>
+    <Avatar 
+    src={`http://localhost:5000/${userImage}`} 
+    size="150px" 
+    round="50%"  />
       <Link to={`/profile/${user}`}>
-      <Avatar name={name} size="150px" round="50%" color="grey" />
+      
         <h4 className={classes.Text}>{name}</h4>
       </Link>
     </div>
@@ -61,7 +66,9 @@ CommentItem.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+
+
 });
 
 export default connect(

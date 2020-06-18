@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
+const User = require('../models/User');
+
+
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
+  
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
+    autopopulate: false
   },
   text: {
     type: String,
@@ -16,11 +21,16 @@ const PostSchema = new Schema({
   avatar: {
     type: String
   },
+  userImage:{
+    type: String
+  },
+
   likes: [
     {
       user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
+
       }
     }
   ],
@@ -28,7 +38,11 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users',
+        autopopulate: false
+      },
+      userImage:{
+        type: String
       },
       text: {
         type: String,
@@ -51,5 +65,8 @@ const PostSchema = new Schema({
     default: Date.now
   }
 });
+PostSchema.plugin(require('mongoose-autopopulate'));
+//const PostSchema = mongoose.Schema({ nested: nestedSchema });
+
 
 module.exports = Post = mongoose.model('post', PostSchema);

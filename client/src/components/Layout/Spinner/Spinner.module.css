@@ -2,16 +2,72 @@
      width: auto;
      height: 200px;
      margin: auto ;
-     display: block 
+     display: block ;
+     
 }
 
 .SpinnerDiv{
-    height: 800px;
+    height: 1375px;
+    justify-content: center;
 }
 
 
-@media screen and (max-width: 801px){
+
+
+@media screen and (max-width: 400px) {
     .SpinnerDiv{
-        height: 600px;
+        min-height: 730px;
+        height: auto;
     }
+}
+
+@media screen and (max-width: 801px)and (min-width: 401px){
+    .SpinnerDiv{
+        height: 1178px;
+    }
+}
+
+
+@media screen and (max-height: 400px) {
+    .SpinnerDiv{
+        min-height: 275px;
+        height: auto;
+    }
+}
+   
+@media screen and (max-height: 600px) and (min-height:401px) {
+    .SpinnerDiv{
+        min-height: 540px;
+        height: auto;
+    }
+}
+
+@media screen and (max-height: 800px) and (min-height:601px) {
+    .SpinnerDiv{
+        min-height: 690px;
+        height: auto;
+    }
+}
+
+@media screen and (max-height: 1200px) and (min-height:801px) {
+    .SpinnerDiv{
+        min-height: 1020px;
+        height: auto;
+    }
+}
+
+@media screen and (max-height: 1400px) and (min-height:1201px) {
+    .SpinnerDiv{
+        min-height: 1265px;
+        height: auto;
+    }
+}
+
+
+
+
+.Pstyle{
+    font-size: larger;
+    padding-top: 100px;
+   
 }

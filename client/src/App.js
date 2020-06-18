@@ -5,7 +5,6 @@ import MainBuild from './containers/MainBuild/MainBuild';
 //import PricePlans from './components/PricePlans/PricePlans';
 import ProductList from './components/PricePlans/Products/Product.List';
 import OurServices from './components/OurServices/OurServices';
-import RegisterCont from './containers/Register/Register';
 import {Route, Switch} from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/Routing/PrivateRoute';
@@ -16,6 +15,7 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 //import Alert from './components/Layout/Alert';
 import CreateProfile from './components/Profile-Forms/CreateProfile';
 import EditProfile from './components/Profile-Forms/EditProfile';
+import EditUserForm from './components/EditUser/editUser';
 import AddExperience from './components/Profile-Forms/AddExperience/AddExperience';
 import AddEducation from './components/Profile-Forms/AddEducation/AddEducation';
 import Footer from './components/Footer/Footer';
@@ -59,7 +59,7 @@ const App = ()=> {
                   
                   <Route exact path='/' component={MainBuild}></Route>
                   <Route exact path='/services' component={OurServices}></Route>
-                  <Route exact path='/register'  component={RegisterCont} ></Route>
+                 
                   <Route exact path='/priceplans'  component={ProductList} ></Route>
                   <Route exact path='/about' component={AboutUs} ></Route>
                   <Route exact path='/team'  component={OurTeam}></Route>
@@ -76,6 +76,7 @@ const App = ()=> {
                   <PrivateRoute exact path='/cart'  component={Cart}></PrivateRoute>
                   <PrivateRoute exact path='/create-profile'  component={CreateProfile}></PrivateRoute>
                   <PrivateRoute exact path='/edit-profile'  component={EditProfile}></PrivateRoute>
+                  <PrivateRoute exact path='/edit-user'  component={EditUserForm}></PrivateRoute>
                   <PrivateRoute exact path='/add-experience'  component={AddExperience}></PrivateRoute>
                   <PrivateRoute exact path='/add-education'  component={AddEducation}></PrivateRoute>
                   <PrivateRoute exact path='/posts'  component={Posts}></PrivateRoute>

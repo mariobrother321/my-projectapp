@@ -18,15 +18,20 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date },
+  post: { _id, text, name, avatar, user, userImage,likes, comments, date },
   showActions,
-  profile
+  showAvatar
+ 
 }) => (
   
   <div className={classes.Post}>
     <div>
-
-    <Avatar name={name} size="150px" round="50%" color="grey" />
+    {showAvatar && (
+      <Avatar 
+    src={userImage} size="150px" round="50%" color="grey" 
+    />
+    )}
+    
       <Link to={`/profile/${user}`}>
    
         <h4 className={classes.Text}>{name}</h4>
@@ -95,7 +100,7 @@ PostItem.propTypes = {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  profile: state.profile
+
 });
 
 export default connect(

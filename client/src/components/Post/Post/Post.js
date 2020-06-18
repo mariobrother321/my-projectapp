@@ -10,10 +10,10 @@ import { getPost } from '../../../action/post';
 import classes from './Post.module.css';
 import CompDiv from '../../CompSection/CompDiv/CompDiv';
 import CompSection from '../../CompSection/CompSection';
+import Avatar from 'react-avatar';
 
 
-
-const Post = ({ getPost, post: { post, loading }, match }) => {
+const Post = ({ getPost, post: {post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost, match.params.id]);
@@ -27,9 +27,12 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
       <Link to="/posts" className="btn btn-dark">
         Back To Posts
       </Link>
-      <PostItem post={post} showActions={false} />
+      <Avatar 
+    src={`http://localhost:5000/${post.userImage}`} size="150px" round="50%" color="grey" 
+    />
+      <PostItem post={post}  showActions={false} showAvatar={false}/> 
      
-      <CommentForm postId={post._id} />
+      <CommentForm postId={post._id} post={post} />
       </Fragment>
       </CompDiv>
 

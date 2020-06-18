@@ -3,6 +3,7 @@ const app = express.Router();
 const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 
+
 const Post = require('../../models/Post');
 const User = require('../../models/User');
 
@@ -33,7 +34,9 @@ app.post(
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
-        user: req.user.id
+        user: req.user.id,
+        userImage: user.userImage
+        
       });
 
       const post = await newPost.save();
@@ -51,7 +54,10 @@ app.post(
 // @access   Private
 app.get('/', auth, async (req, res) => {
   try {
-    const posts = await Post.find().sort({ date: -1 });
+    const posts = await Post.find().sort({ date: -1 })
+    //.populate({path: 'user',select: 'userImage',model: User});
+    
+   /// await posts.populate({path: 'user',select: 'userImage',model: User}).execPopulate();
     res.json(posts);
   } catch (err) {
     console.error(err.message);
@@ -64,7 +70,7 @@ app.get('/', auth, async (req, res) => {
 // @access   Private
 app.get('/:id', auth, async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id)
 
     // Check for ObjectId format and post
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !post) {
@@ -99,6 +105,7 @@ app.delete('/:id', auth, async (req, res) => {
     await post.remove();
 
     res.json({ msg: 'Post removed' });
+  
   } catch (err) {
     console.error(err.message);
 
@@ -183,13 +190,14 @@ app.post(
 
     try {
       const user = await User.findById(req.user.id).select('-password');
-      const post = await Post.findById(req.params.id);
+      const post = await (await Post.findById(req.params.id));
 
       const newComment = {
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
-        user: req.user.id
+        user: req.user.id,
+        userImage: user.userImage
       };
 
       post.comments.unshift(newComment);

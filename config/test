@@ -589,3 +589,196 @@ app.post("/", upload.single('userImage'), (req, res, next) => {
    <i className="" >< Avatar size="150px" round="50%" src={user.userImage}
              
               alt=""/>Welcome {user.name}</i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+               const newPost = await Profile.findOne({ user: req.user.id}).populate('user',['name', 'avatar','userImage' ]);
+
+
+
+
+
+
+
+
+
+
+
+               //.then(user => {
+  console.log(user);
+  res.status(201).json({
+    message: " User created successfully",
+    user: {
+        
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        //userImage: user.userImage,
+        request: {
+            type: 'GET',
+            url: "http://localhost:5000/api/users/" + user._id
+        } 
+      }
+      })
+    });
+
+
+
+
+
+
+
+
+
+
+      const product= this.props.cart.product;
+        const makePayment = async token => {
+            const body = {
+                token, 
+                product
+            }
+            const headers = {
+                "Content-Type ": "application/json"
+            }
+            
+            try {
+                let res = await Axios.post(`http://localhost:5000/payment`, {
+                    headers,
+                    body: JSON.stringify(body)
+                });
+                console.log("RESPONSE", res);
+                const { status } = res;
+                console.log("STATUS", status);
+            }
+            catch (error) {
+                return console.log(error);
+            }
+        };
+
+
+        //Stripe Payments
+app.post('/api/payment', (req, res)=> {
+
+   const { product, token } =req.body 
+   console.log("PRODUCT", product);
+   console.log("PRICE", product.price);
+   const idempontencyKey = uuid()
+
+   return stripe.customers.create({
+     email: token.email,
+     source: token.id
+   }).then(customer => {
+     stripe.charges.create({
+       amount: product.price * 100,
+       currency:'eur',
+       customer: customer.id,
+       receipt_email: email,
+       description: product.name,
+       shipping: {
+         name: token.card.name,
+         address:{
+           country: token.card.address_country
+         }
+       }
+
+     }, {idempontencyKey})
+   }).then(result => res.status(200).json(result))
+   .catch(err => console.log(err))
+
+});
+
+
+
+
+const express = require("express");
+const app = express.Router();
+const Stripe = require('stripe') ;
+
+
+
+ 
+  app.get('/', (req, res) => {
+    res.send({
+      message: 'Ping from Checkout Server',
+      timestamp: new Date().toISOString(),
+      env: process.env.NODE_ENV,
+    });
+  });
+
+  app.post('/session-initiate', async (req, res) => {
+    const {
+      clientReferenceId,
+      customerEmail,
+      lineItem,
+      successUrl,
+      cancelUrl,
+    } = req.body;
+
+    const stripe = Stripe('sk_test_joSQfZG3ocHg0gwB1VKUuiGU00xzlx9Eo6');
+
+
+    let session;
+
+    try {
+      session = await stripe.checkout.sessions.create({
+        client_reference_id: clientReferenceId,
+        customer_email: customerEmail,
+        payment_method_types: ['card'],
+        line_items: [lineItem],
+        payment_intent_data: {
+          description: `${lineItem.name} ${lineItem.description}`,
+        },
+        success_url: successUrl,
+        cancel_url: cancelUrl,
+      });
+    } catch (error) {
+      res.status(500).send({ error });
+    }
+    console.log(session);
+    return res.status(200).send(session);
+    
+  });
+
+  app.post('/session-complete', async (req, res) => {
+    const stripe = Stripe('sk_test_joSQfZG3ocHg0gwB1VKUuiGU00xzlx9Eo6');
+
+    let event;
+
+    try {
+      event = stripe.webhooks.constructEvent(
+        req.rawBody,
+        req.headers['stripe-signature'],
+        'YOUR_STRIPE_WEBHOOK_SECRET'
+      );
+    } catch (error) {
+      return res.status(400).send(`Webhook Error: ${error.message}`);
+    }
+
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object;
+
+      try {
+        // complete your customer's order
+        // e.g. save the purchased product into your database
+        // take the clientReferenceId to map your customer to a product
+      } catch (error) {
+        return res.status(404).send({ error, session });
+      }
+    }
+
+    return res.status(200).send({ received: true });
+  });
+
+
+  module.exports = app;
+

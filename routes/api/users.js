@@ -9,7 +9,7 @@ const multer = require('multer');
 //let upload = multer({dest:'uploads/'})
 const { check, validationResult } = require('express-validator');
 const path = require('path');
-//const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth')
 
 
 
@@ -58,9 +58,11 @@ app.get("/", (req, res, next) => {
           count: docs.length,
           users: docs.map(doc => {
             return {
+              id: doc._id,
               name: doc.name,
               email: doc.email,
               password: doc.password,
+              password2: doc.password2,
               userImage: doc.userImage,
               request: {
                 type: "GET",
@@ -90,8 +92,7 @@ app.get("/", (req, res, next) => {
 //@description     Register user
 //@acces           Public
 
-app.post('/', upload.single('userImage'),
-              //auth,
+app.post('/',upload.single('userImage'),   
     [
     check('name', 'Name is Required')
     .not()
@@ -105,7 +106,7 @@ app.post('/', upload.single('userImage'),
         return res.status(400).json({errors: errors.array() });
     }
     
-  const {email,password}= req.body
+  const {name,email,password}= req.body
 
     try {
 // see if the user exists
@@ -136,31 +137,16 @@ user = new User({
   name: req.body.name,
   email: req.body.email,
   password: req.body.password,
-  avatar:req.body.avatar,
+  password2: req.body.password2,
   userImage: req.file.path 
 });
-//encrypt password
+
 const salt = await bcrypt.genSalt(10);
 user.password = await bcrypt.hash(password, salt);
 
- await user.save().then(user => {
-  console.log(user);
-  res.status(201).json({
-    message: " User created successfully",
-    user: {
-        name: user.name,
-        email: user.email,
-        password: user.password,
-        userImage: user.userImage,
-        request: {
-            type: 'GET',
-            url: "http://localhost:5000/api/users/" + user._id
-        } 
-      }
-      })
-    });
+ await user.save()
 
- //return jsonwebtoken
+ // Return jsonwebtoken
 
 const payload = { 
     user : {
@@ -185,6 +171,31 @@ jwt.sign(
     }
 });
 
-
+app.get("/meuser",auth, async (req, res) => {
+  const id = req.user.id;
+    const user= await User.findById(id)
+    .select('name email _id userImage password, password2')
+    .exec()
+    .then(doc => {
+      console.log("From database", doc);
+      if (doc) {
+        res.status(200).json({
+            user: doc,
+            request: {
+                type: 'GET',
+                url: 'http://localhost:5000/users'
+            }
+        });
+      } else {
+        res
+          .status(404)
+          .json({ message: "No valid entry found for provided ID" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
 
 module.exports = app;

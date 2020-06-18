@@ -2,5 +2,6 @@
     "mongoURI":"mongodb+srv://marioAppUser:Ralucutza0911@mario1-xlad7.mongodb.net/test?retryWrites=true&w=majority",
     "jwtSecret": "mysecretetoken",
     "githubClientId": "8c6d51a13eb6a56c80af",
-    "githubSecret": "a1b9317c08328abcb3e33e00475c0995e40e3879"
+    "githubSecret": "a1b9317c08328abcb3e33e00475c0995e40e3879",
+    "stripe_key": "pk_test_6oHvFv9QaW30tno1EhIR2t5E00FF5751Se"
 }

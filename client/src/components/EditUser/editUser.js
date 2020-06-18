@@ -1,20 +1,24 @@
-import React, {useState, Fragment} from 'react';
-import classes from './RegisterForm.module.css';
+import React, {useState, Fragment,useEffect} from 'react';
+import classes from './editUser.module.css';
 import {connect} from 'react-redux';
 import {setAlert} from '../../action/alert';
 import {register} from '../../action/auth';
 import PropTypes from 'prop-types';
 import Alert from '../Layout/Alert';
-import {Redirect} from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import { Link} from 'react-router-dom';
 import CompSection from '../CompSection/CompSection';
-
-//import CompDiv from '../CompSection/CompDiv/CompDiv';
+import {getCurrentUser } from '../../action/auth';
 
 //import axios from 'axios';
 //import Aux from '../../hoc/Auxiliary/Auxiliary';
 
-const RegisterForm = ({setAlert, register, isAuthenticated, history})=> {
+const EditUserForm = ({setAlert, 
+    register, 
+    isAuthenticated, 
+    auth:{user, loading},
+    getCurrentUser ,
+    history})=> {
 
   //const [formData, setFormData] = useState({
     //userImage: '',
@@ -23,11 +27,22 @@ const RegisterForm = ({setAlert, register, isAuthenticated, history})=> {
     //password: '',
     //password2: ''
   //});
-const [name, setName] = useState();
-const [email, setEmail] = useState();
-const [password, setPassword] = useState();
-const [password2, setPassword2] = useState();
-const [userImage, setuserImage] = useState();
+const [name, setName] = useState({name:''});
+const [email, setEmail] = useState({email: ''});
+const [password, setPassword] = useState({password: ''});
+const [password2, setPassword2] = useState({ password2: ''});
+const [userImage, setuserImage] = useState({userImage: ''});
+
+useEffect(() => {
+  getCurrentUser()
+   
+    setName({name: loading || !user.name ? '' : user.name});
+    setEmail({email: loading || !user.email ? '' : user.email});
+    setPassword({password: loading || !user.password ? '' : user.password});
+    setPassword2({password2: loading || !user.password2 ? '' : user.password2});
+    setuserImage({userImage: loading || !user.userImage ? '' : user.userImage})
+   // eslint-disable-next-line
+}, [loading,getCurrentUser ])
 
 //const {userImage, name, email, password, password2}= formData;
 
@@ -49,21 +64,19 @@ const onSubmit = async e =>{
   }
 }
 
-if (isAuthenticated) {
-   return <Redirect to="/" />;
-}
 
 
 
 return(
     <Fragment>
       <CompSection>
+       
         
        <Alert/>
 
       <div className={classes.SignUp}>
         <form className='form' onSubmit={e => onSubmit(e)}>
-          <h2 style={{color: '#fff'}}>Sign Up</h2>
+          <h2 style={{color: '#fff'}}>Update avatar and details</h2>
            <input type="file" 
            id="userImage" 
            accept=".jpg, .jpeg, .png"
@@ -75,6 +88,7 @@ return(
            type="text"
            placeholder="Name" 
            id="name"  
+           name="name"
            onChange = {event => {
             const{ value} = event.target;
             setName(value);
@@ -114,7 +128,7 @@ return(
         </form>
        
       </div>
-       
+     
       </CompSection>
     </Fragment>
       );
@@ -125,17 +139,18 @@ return(
 
 
 
-RegisterForm.propTypes ={
+EditUserForm.propTypes ={
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth
 });
 
-export default connect( mapStateToProps , { setAlert, register })(RegisterForm);
+export default connect( mapStateToProps , { setAlert, register,  getCurrentUser })(withRouter(EditUserForm));
 
 
 

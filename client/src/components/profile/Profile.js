@@ -51,7 +51,7 @@ const Profile = ({
                   
                       <div className={classes.ProfileExperience}>
                       
-                       <h2 className="text-disabled">Experience</h2>
+                       <h2 style={{color:"white"}}>Experience</h2>
                     
                          {profile.experience.length > 0 ? (<Fragment>
                              {profile.experience.map(experience => (
@@ -68,7 +68,7 @@ const Profile = ({
                          <div className={classes.Line}></div>
                          
                        <div className={classes.ProfileEducation}>
-                         <h2 className="text-disabled">Education</h2>
+                         <h2 style={{color:"white"}}>Education</h2>
                           {profile.education.length > 0 ? (<Fragment>
                              {profile.education.map(education => (
                                  <Aux  key={education._id}>

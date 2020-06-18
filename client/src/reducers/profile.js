@@ -1,14 +1,17 @@
 import {
     GET_PROFILE,
+   
     PROFILE_ERROR,
     CLEAR_PROFILE,
     UPDATE_PROFILE,
     GET_PROFILES,
     GET_REPOS,
-    
+   
   } from '../action/types';
   
   const initialState = {
+    user: null,
+    users: [],
     profile: null,
     profiles: [],
     repos: [],
@@ -33,6 +36,7 @@ import {
           profiles: payload,
           loading: false
         };
+       
       case PROFILE_ERROR:
         return {
           ...state,

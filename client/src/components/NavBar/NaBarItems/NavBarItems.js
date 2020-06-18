@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {logout} from '../../../action/auth';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 //import Icon from '@material-ui/core/Icon';
-
+//import Avatar from 'react-avatar';
 
 class NavBarItems extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class NavBarItems extends Component {
     this.state = {
       collapsed: true,
       //loginOpen: false
+ 
     };
     
   }
@@ -26,10 +27,11 @@ class NavBarItems extends Component {
       collapsed: !this.state.collapsed,
       
     });
-
+   
    
 
   }
+
   render() {
     this.props.cartUpdated();
         let total = 0; 

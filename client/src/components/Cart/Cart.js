@@ -3,14 +3,25 @@ import React, { Component } from 'react';
 import Item from './Item';
 import { connect } from 'react-redux';
 import CompSection from '../CompSection/CompSection';
+//import StripeCheckout from 'react-stripe-checkout';
+//import Axios from 'axios';
+import Checkout from './Checkout';
+
+
  
 class Cart extends Component
 {
+
+   
+    
     render() {
- 
+
+      
+        let description = '';
         let total = 0;
  
         this.props.cart.map(item => total += item.product.price * item.quantity);
+        this.props.cart.map(item => description += item.product.title );
  
         const cart  = this.props.cart.length > 0?(
             <CompSection>
@@ -28,9 +39,16 @@ class Cart extends Component
                     }
                 </div>
                 <div className="panel-footer">
-                    <div className="row text-center">
+                    <div className="row text-center"style={{display: "initial"}}>
                         <div className="col-xs-11">
                             <h4 className="text-right">Total <strong>£ {total.toFixed(3)} per/month</strong></h4>
+                        </div>
+                        <div className="col-xs-11">
+                        <Checkout
+                       
+                        amount={total.toFixed(3)}
+                        description={description}
+                        />
                         </div>
  
                     </div>
@@ -72,6 +90,7 @@ class Cart extends Component
     }
 }
  
+
 const mapStateToProps = (state) => {
  
   return {

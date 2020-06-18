@@ -11,8 +11,12 @@ import CompDiv from '../../CompSection/CompDiv/CompDiv';
 //import User1 from '../../../assets/images/teammember13.jfif';
 import classes from './ProfileTop.module.css';
 import Avatar from 'react-avatar';
+import { connect } from 'react-redux';
 
-const ProfileTop = ({ profile: {
+
+
+
+const ProfileTop = ({ auth, profile: {
     status,
     company,
     location,
@@ -24,7 +28,10 @@ const ProfileTop = ({ profile: {
         <CompDiv>
              <div className={classes.ProfileTop}>
             
-             <i className="" ><Avatar src={user.userImage} alt=""/></i>
+             <i className="" ><Avatar src={`http://localhost:5000/${user.userImage}`} 
+             size="150px" 
+             round="50%" 
+             alt=""/></i>
     <h1 className="medium">{user.name}</h1>
     <p className="lead">{status} {company && <span>at {company}</span>}</p>
     <p>{location && <span>{location}</span>}</p>
@@ -76,4 +83,14 @@ ProfileTop.propTypes = {
   profile: PropTypes.object.isRequired,
 }
 
-export default ProfileTop
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  //profile: state.profile,
+  //user: state.user
+});
+
+
+
+
+export default connect(mapStateToProps)(ProfileTop)

@@ -14,7 +14,7 @@ import {
 // Get posts
 export const getPosts = () => async dispatch => {
   try {
-    const res = await axios.get('/api/posts');
+    const res = await axios.get('/api/posts/');
 
     dispatch({
       type: GET_POSTS,
@@ -72,7 +72,8 @@ export const deletePost = id => async dispatch => {
       payload: id
     });
 
-    dispatch(setAlert('Post Removed', 'success'));
+    dispatch(setAlert('Post Removed', 'success'))
+    
   } catch (err) {
     dispatch({
       type: POST_ERROR,

@@ -1,7 +1,12 @@
+if (process.env.NODE_ENV === "production") {
+  require('dotenv').load()
+}
+
 const express = require('express');
 const connectDB = require('./config/db');
 const app = express();
 const path = require('path');
+
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const creds = require('./config/contact');
@@ -15,20 +20,40 @@ const config = require('config');
 const dbURI = config.get('mongoURI');
 const bodyParser = require('body-parser');
 const auth = require('./middleware/auth');
-
+const cors = require("cors")
+const uuid = require("uuid/v4")
 const morgan = require("morgan");
+const CORS_WHITELIST = require('./client/src/constants/frontend');
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY ;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY ;
 
 
 
 
+
+
+const corsOptions = {
+  origin: (origin, callback) =>
+    (CORS_WHITELIST.indexOf(origin) !== -1)
+      ? callback(null, true)
+      : callback(new Error('Not allowed by CORS'))}
 
 // Connect Database
 connectDB();
 
 
 //init Middleware
-app.use(express.json());
-
+app.use(
+  express.json({
+    // Because Stripe needs the raw body, we compute it but only when hitting the Stripe callback URL.
+    verify: (req, res, buf) => {
+      if (req.originalUrl.startsWith('payment/session-complete')) {
+        req.rawBody = buf.toString();
+      }
+    },
+  })
+);
+app.use(cors());
 
 //app.use(methodOverride('_method'));
 
@@ -49,24 +74,19 @@ app.use(express.json());
 
 
 mongoose.Promise = global.Promise;
-//app.use(morgan("dev"));
-
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-    return res.status(200).json({});
-  }
+
+app.use(function(req, res, next) { 
+  //allow cross origin requests
+  res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-auth-token");
+  res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
@@ -77,7 +97,7 @@ app.use('/userimages', express.static('userimages'));
 
 
 
-// Send Email
+// Send Contact us details
 app.post('/send',  (req, res) => {
   
 
@@ -88,7 +108,7 @@ app.post('/send',  (req, res) => {
   <li> Name:${req.body.name}</li>
   <li> Phone Number:${req.body.number}</li>
   <li> Email:${req.body.email}</li>
-  <li> Name:${req.body.name}</li>
+ 
   </ul>
   <h3>Message</h3>
   <p> ${req.body.message}</p>
@@ -130,13 +150,15 @@ app.post('/send',  (req, res) => {
 
 })
 
+
+
 // Define Routes
 app.use('/api/users', require('./routes/api/users.js'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/products', require('./routes/api/product'));
-
+app.use('/api/payment', require('./routes/api/payment'));
 
 
 app.use((req, res, next) => {
@@ -154,8 +176,13 @@ app.use((error, req, res, next) => {
   });
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./userimages", "build", "index.html"));
+   });
+  
+
 // Serve static assets if in production
-//if (process.env.NODE_ENV === "production") {
+//
 
   //Set static folder
  // app.use(express.static("client/build"));

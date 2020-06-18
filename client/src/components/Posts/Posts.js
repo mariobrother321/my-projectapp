@@ -36,9 +36,11 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
              <Fragment>
              <div className={classes.Posts}>
                {posts.map(post => (
-                 <PostItem key={post._id} post={post} />
+                 <PostItem key={post._id} post={post} showAvatar={true}/>
                  
-               ))}
+               )
+               )}
+               
                
              </div>
             
@@ -48,6 +50,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
              <Alert/>
       
     </CompSection>
+   
   );
 };
 

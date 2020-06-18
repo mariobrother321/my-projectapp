@@ -10,6 +10,8 @@ import classes from './DashBoardAction.module.css';
  const DashboardActions = () => {
     return (
         <div className="dash-buttons">
+        <Link to="/edit-user" className={classes.ButtonLight}>
+        <EditTwoToneIcon/> Edit User </Link>
         <Link to="/edit-profile" className={classes.ButtonLight}>
         <EditTwoToneIcon/> Edit Profile </Link>
         
