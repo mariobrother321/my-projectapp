@@ -2,7 +2,6 @@ const express = require('express');
 const connectDB = require('./config/db');
 const app = express();
 const path = require('path');
-const favicon = require("serve-favicon");
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const creds = require('./config/contact');
@@ -164,10 +163,10 @@ app.use('/api/payment', require('./routes/api/payment'));
 //});
 
 //app.use((error, req, res, next) => {
-  //res.status(error.status || 500);
+ // res.status(error.status || 500);
   //res.json({
     //error: {
-      //message: error.message
+     // message: error.message
     //}
   //});
 //});
