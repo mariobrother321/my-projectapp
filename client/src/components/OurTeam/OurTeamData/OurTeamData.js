@@ -124,7 +124,7 @@ const ourTeamData = (props) => (
 	                                                                
                   </ul>
                 </div>
-                <h2 className="text-white">Dave L Creedence</h2>
+                <h2 className="text-white">Daven Crodence</h2>
                 <h3>Human Resources</h3>
                 <p> Proud to help our nation</p>
               </div>
