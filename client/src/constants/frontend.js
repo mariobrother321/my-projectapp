@@ -1,7 +1,7 @@
 const FRONTEND_DEV_URLS = [ 'http://localhost:3000/' ];
  
 const FRONTEND_PROD_URLS = [
-  'https://www.yourdomain.com',
+  'https://warm-earth-24313.herokuapp.com/',
   'https://yourdomain.com'
 ];
  
