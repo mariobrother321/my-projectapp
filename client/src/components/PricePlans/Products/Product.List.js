@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
          return (
              <CompSection>
              <div className="container">
-                 <h2>Product List</h2>
+                 <h2 className='text-white'>Product List</h2>
                  <br/>
                  <div className="col-lg-auto">
                    {this.props.products && this.props.products.map(product => <Product

@@ -5,7 +5,6 @@ import {
     REGISTER_FAIL, 
     USER_LOADED, 
     GET_USER,
-    UPDATE_USER,
     AUTH_ERROR,
     USER_ERROR,
     LOGIN_SUCCESS,

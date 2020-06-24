@@ -18,15 +18,17 @@ const aboutUsIngredients = (props) => {
             <div className="col-md-6">
               <h2 className={classes.Header}>About Us</h2> 
               <div className={classes.AboutUsContent}>
-                djfbkwebfwajhbfwejbvwevwvbJHVKFLE
-                WKNHEFJKAWEEBEFJAWFHWEBFKJWEebf
-                kjbkjwebfjwejkweebfjkwebfwebfwe
-                djfbkwebfwajhbfwejbvwevwvbJHVKFLE
-                WKNHEFJKAWEEBEFJAWFHWEBFKJWEebf
-                kjbkjwebfjwejkweebfjkwebfwebfwe
-                djfbkwebfwajhbfwejbvwevwvbJHVKFLE
-                WKNHEFJKAWEEBEFJAWFHWEBFKJWEebf
-                kjbkjwebfjwejkweebfjkwebfwebfwe
+Web Business Solutions provides end-to-end hardware, IT and business process services to clients across EU, 
+utilizing a highly customized, cost efficient delivery model that combines on-site and off-site operations; 
+Web Business Solutions empowers product innovation and decision-making through technology that optimizes the analysis, 
+management and visualization of business and Engineering information.
+Privately held since 1992 and employs more than 20 employees, many of them contractual professionals specialized in engineering applications.
+With a 20-year-plus track record for product innovation and enabling new engineering products, 
+Web Business Solutions consistently delivers a competitive advantage to its clients in the aerospace and consumer products.
+Our mission is to help our clients with hardware and professional services of outstanding quality,
+competence and objectivity, delivering the best solutions to fully satisfy client objectives in information technology, 
+business processes and management. 
+In all we do, we foster a culture of partnership, entrepreneurship and integrity, building a world class IT company
               </div >
              
             </div>
@@ -55,10 +57,7 @@ const aboutUsIngredients = (props) => {
           </div>
           
         </div>
-        <div className={classes.ReadMoreBtn}>
-          <a href= "readmorepgn.html"style={{textDecoration: 'none'}}><input type="button" name="readmore-btn" defaultValue= "More"/>
-              </a>
-              </div>
+       
       </section>
 
         
