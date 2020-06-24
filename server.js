@@ -1,8 +1,8 @@
-
 const express = require('express');
 const connectDB = require('./config/db');
 const app = express();
 const path = require('path');
+const favicon = require("serve-favicon");
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const creds = require('./config/contact');
@@ -157,24 +157,24 @@ app.use('/api/products', require('./routes/api/product'));
 app.use('/api/payment', require('./routes/api/payment'));
 
 
-app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
-});
+//app.use((req, res, next) => {
+  //const error = new Error("Not found");
+  //error.status = 404;
+  //next(error);
+//});
 
-app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
-    error: {
-      message: error.message
-    }
-  });
-});
+//app.use((error, req, res, next) => {
+  //res.status(error.status || 500);
+  //res.json({
+    //error: {
+      //message: error.message
+    //}
+  //});
+//});
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./userimages", "build", "index.html"));
-   });
+//app.get("*", (req, res) => {
+ // res.sendFile(path.resolve(__dirname, "./userimages", "build", "index.html"));
+  // });
   
 
 // Serve static assets if in production
@@ -184,7 +184,7 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
       });
 }
 

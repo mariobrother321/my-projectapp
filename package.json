@@ -1,9 +1,6 @@
 {
   "name": "myserverapp",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.11.1"
-  },
   "description": "personal website",
   "main": "server.js",
   "scripts": {
@@ -70,7 +67,6 @@
     "react-dropzone": "^11.0.1",
     "req-flash": "0.0.3",
     "request": "^2.88.2",
-    "serve": "^11.3.2",
     "serve-favicon": "^2.5.0",
     "stripe": "^8.66.0",
     "uuid": "^7.0.3"
