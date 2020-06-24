@@ -48,7 +48,7 @@ const ourServicesData = (props) => (
               <h3>Graphics Design</h3>
               <p>Through design thinking, personalization, journey mapping and more,
                  WBS is uniquely able to provide assistance at every step of the process,
-                  from strategy and experience design, to execution and support.</p> 
+                  from strategy and experience design, to execution and support...</p> 
             </div>
           </div>
         </div>
