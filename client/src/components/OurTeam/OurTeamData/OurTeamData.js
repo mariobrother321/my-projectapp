@@ -18,7 +18,7 @@ const ourTeamData = (props) => (
     <CompLocalSection>
       <CompDiv>
       
-            <h1 style={{color: 'white'}}>Our Team </h1>
+            <h1 className="text-white">Our Team </h1>
             <div className="row">
               <div className="col-md-auto profile-pic text-center">
                 <div className={classes.ImageBox}>
@@ -52,7 +52,7 @@ const ourTeamData = (props) => (
 	                                                       
                   </ul>
                 </div>
-                <h2>Anais M Dinca</h2>
+                <h2 className="text-white">Rita Roger</h2>
                 <h3>Founder/ CEO</h3>
                 <p> Proud to help our nation</p>
               </div>
@@ -88,7 +88,7 @@ const ourTeamData = (props) => (
 	                                                                
                   </ul>
                 </div>
-                <h2>Raluca R Dinca</h2>
+                <h2 className="text-white">Mei Lee</h2>
                 <h3>Graphic Designer</h3>
                 <p> Proud to help our nation</p>
               </div>
@@ -124,7 +124,7 @@ const ourTeamData = (props) => (
 	                                                                
                   </ul>
                 </div>
-                <h2>Marian M Dinca</h2>
+                <h2 className="text-white">Dave L Creedence</h2>
                 <h3>Human Resources</h3>
                 <p> Proud to help our nation</p>
               </div>
@@ -161,7 +161,7 @@ const ourTeamData = (props) => (
 	                                                                
                   </ul>
                 </div>
-                <h2>Marian M Dinca</h2>
+                <h2 className="text-white">Reno Valverde</h2>
                 <h3>Human Resources</h3>
                 <p> Proud to help our nation</p>
               </div>
