@@ -3,7 +3,6 @@ const express = require('express');
 const connectDB = require('./config/db');
 const app = express();
 const path = require('path');
-
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const creds = require('./config/contact');
