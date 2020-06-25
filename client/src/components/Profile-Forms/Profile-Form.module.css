@@ -31,7 +31,8 @@
 
 .inputForm{
     border: 1px solid black;
-    width: 500px;
+    min-width: 400px;
+    width: auto;
     color: white;
     font-weight: bolder;
     
@@ -40,7 +41,8 @@
 .inputForm1{
     background-color: inherit;
     border: 1px solid black;
-    width: 500px;
+    min-width: 400px;
+    width: auto;
     color: white;
     font-weight: bolder;
 }
@@ -48,12 +50,47 @@
 .inputForm2{
     background-color: inherit;
     border: 1px solid black;
-    width: 500px;
+    min-width: 400px;
+    width:auto;
     color: white;
     font-weight: bolder;
 }
 
 
+@media screen and (max-width: 400px) {
+    .inputForm{
+    min-width: 300px;
+    width:auto;
+    }
+    .inputForm1{
+    min-width: 300px;
+    width:auto;
+    }
+    .inputForm2{
+    min-width: 300px;
+    width:auto;
+    }
+    
+    
+}
 
+@media screen and (max-width: 801px) {
+ 
+    .inputForm{
+        min-width: 300px;
+        width:auto;
+        }
+        .inputForm1{
+        min-width: 300px;
+        width:auto;
+        }
+        .inputForm2{
+        min-width: 300px;
+        width:auto;
+        }
+        
+    
+
+}
 
 

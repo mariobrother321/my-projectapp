@@ -28,7 +28,7 @@ const ProfileTop = ({ auth, profile: {
         <CompDiv>
              <div className={classes.ProfileTop}>
             
-             <i className="" ><Avatar src={`http://localhost:5000/${user.userImage}`} 
+             <i className="" ><Avatar src={`https://warm-earth-24313.herokuapp.com/${user.userImage}`} 
              size="150px" 
              round="50%" 
              alt=""/></i>

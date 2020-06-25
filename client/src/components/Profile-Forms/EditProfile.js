@@ -100,8 +100,8 @@ const EditProfile = ({ profile: {profile, loading},
       <form className={classes.FormBasicInfo}  onSubmit={e => onSubmit(e)}>
      
           <div className="form-group">
-            <select name="status" value={status} onChange={e => onChange(e)} className={classes.inputForm2} >
-              <option  value={0}>* Select Professional Status</option>
+            <select name="status" value={status} onChange={e => onChange(e)}  className={classes.FormGrup} >
+              <option className={classes.Option} value={0}>* Select Professional Status</option>
               <option  value="Developer">Developer</option>
               <option  value="Junior Developer">Junior Developer</option>
               <option value="Senior Developer">Senior Developer</option>
@@ -188,7 +188,7 @@ const EditProfile = ({ profile: {profile, loading},
           <Fragment>
 
           <div className="form-group social-input">
-            < TwitterIcon color="primary"/>
+           
             <input 
             type="text" 
             placeholder="Twitter URL" 

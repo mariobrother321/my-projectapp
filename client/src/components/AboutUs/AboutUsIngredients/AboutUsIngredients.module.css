@@ -8,6 +8,7 @@
         width: fit-content;
     }
     
+    
 }
 
 @media screen and (max-width: 801px) {
@@ -107,7 +108,7 @@ input[type=button]
 
 .Header{
     color:black;
-	padding-left: 15px;
+	padding-left: 0px;
 	font-weight: bold;
 }
 
