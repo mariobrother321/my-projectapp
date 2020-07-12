@@ -7,6 +7,7 @@ import PeopleAltTwoToneIcon from '@material-ui/icons/PeopleAltTwoTone';
 import CompLocalSection from '../CompSection/CompLocalSection/CompLocalSection';
 import CompDiv from '../CompSection/CompDiv/CompDiv';
 import ProfileItem from '../Profiles/ProfileItem';
+import { Link} from 'react-router-dom';
 
 const Profiles = ({getProfiles, profile: {profiles, loading} }) => {
     
@@ -23,6 +24,7 @@ const Profiles = ({getProfiles, profile: {profiles, loading} }) => {
             <p className="lead">
                 <PeopleAltTwoToneIcon style={{ fontSize:"60px"}}/><br/>Browse and connect with users
             </p>
+            <Link to="/dashboard"> <input type="cancel" className='btn btn-light' defaultValue="Back"  /></Link> <br /><br />
             <div className="profiles-create">
                 {profiles.length > 0 ? (
                     profiles.map(profile => (

@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 //import {Form} from 'react-bootstrap';
 //import Icon from '@material-ui/core/Icon';
-import TwitterIcon from '@material-ui/icons/Twitter';
+//import TwitterIcon from '@material-ui/icons/Twitter';
 import classes from './Profile-Form.module.css';
 import {createProfile, getCurrentProfile} from '../../action/profile';
 import CompLocalSection from '../CompSection/CompLocalSection/CompLocalSection';
