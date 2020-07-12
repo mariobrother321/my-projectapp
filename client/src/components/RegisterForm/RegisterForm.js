@@ -70,7 +70,8 @@ return(
            onChange = {event => {
             const userImage = event.target.files[0];
             setuserImage(userImage);
-           }}/>
+           }}
+           required/>
           <input 
            type="text"
            placeholder="Name" 
@@ -110,7 +111,7 @@ return(
            }}
            required/><br /><br />
           <input type="submit" className='btn btn-dark' defaultValue="Sign up" /><br /><br />
-        <Link to="/"> <input type="cancel" className='btn btn-light' defaultValue="Cancel"  /></Link> <br /><br />
+        <Link to="/dashboard"> <input type="cancel" className='btn btn-light' defaultValue="Cancel"  /></Link> <br /><br />
         </form>
        
       </div>

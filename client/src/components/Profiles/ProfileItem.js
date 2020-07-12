@@ -25,7 +25,7 @@ const ProfileItem = ({
     <div className="row" style={{margin:"10px"}}>
     <i className="" ><Avatar src={userImage} size="150px" round="50%" color="grey"/></i>
       <div className={classes.Info}>
-        <h2>{name}</h2>
+        <h2 style={{color:"white"}}>{name}</h2>
         <p>
           {status} {company && <span> at {company}</span>}
         </p>

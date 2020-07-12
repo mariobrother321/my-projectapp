@@ -26,7 +26,7 @@ const CommentItem = ({
   <div className={classes.Post}>
     <div>
     <Avatar 
-    src={`https://warm-earth-24313.herokuapp.com/${user.userImage}`} 
+    src={`https://warm-earth-24313.herokuapp.com/${userImage}`} 
     size="150px" 
     round="50%"  />
       <Link to={`/profile/${user}`}>

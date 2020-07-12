@@ -28,7 +28,7 @@ const Post = ({ getPost, post: {post, loading }, match }) => {
         Back To Posts
       </Link>
       <Avatar 
-    src={`http://localhost:5000/${post.userImage}`} size="150px" round="50%" color="grey" 
+    src={`https://warm-earth-24313.herokuapp.com/${post.userImage}`} size="150px" round="50%" color="grey" 
     />
       <PostItem post={post}  showActions={false} showAvatar={false}/> 
      

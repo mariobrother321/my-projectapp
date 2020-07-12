@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../../action/post';
 import classes from './PostForm.module.css';
-
+import { Link} from 'react-router-dom';
 
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState('');
@@ -32,6 +32,7 @@ const PostForm = ({ addPost }) => {
           required
         />
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
+       <Link to="/dashboard"> <input type='cancel' className='btn btn-light my-1' defaultValue='Back' /></Link>
       </form>
     </div>
   );
